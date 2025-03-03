@@ -9,6 +9,10 @@
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
+.-m-0-5 {
+  margin: 0.125rem; /* 2px */
+}
+
 .bg-red-500 {
   background-color: oklch(0.637 0.237 25.331);
 }
@@ -23,6 +27,10 @@
 
 .p-2 {
   padding: 0.5rem; /* 8px */
+}
+
+.p-0-5 {
+  padding: 0.125rem; /* 2px */
 }
 
 .p-5 {
@@ -114,6 +122,10 @@
   align-items: center;
 }
 
+.rounded-md {
+  border-radius: 0.375rem; /* 6px */
+}
+
 .pl-4 {
   padding-left: 1rem; /* 16px */
 }
@@ -129,6 +141,26 @@
 
 .font-medium {
   font-weight: 500;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-cols-6 {
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.gap-3 {
+  gap: 0.75rem; /* 12px */
 }
 
 .text-gray-900 {
@@ -152,6 +184,16 @@
   padding-right: 1rem; /* 16px */
 }
 
+.px-3 {
+  padding-left: 0.75rem; /* 12px */
+  padding-right: 0.75rem; /* 12px */
+}
+
+.py-3 {
+  padding-top: 0.75rem; /* 12px */
+  padding-bottom: 0.75rem; /* 12px */
+}
+
 .py-1-5 {
   padding-top: 0.375rem; /* 6px */
   padding-bottom: 0.375rem; /* 6px */
@@ -160,6 +202,55 @@
 .text-base {
   font-size: 1rem; /* 16px */
   line-height: 1.5rem; /* 24px */
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.stressLabel:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+.stressLabel:active {
+  color: pink;
+}
+
+.ring-inset {
+  --tw-ring-inset: inset;
+}
+
+.stressLabel:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+.stressLabel:active:checked {
+  box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width))
+    var(--tw-ring-color);
+}
+
+.stressLabel:checked {
+  box-shadow: var(--tw-ring-inset) 0 0 0 calc(0px + var(--tw-ring-offset-width))
+    var(--tw-ring-color);
+}
+
+.stressLabel:active {
+  --tw-ring-color: rgb(79 70 229 / var(--tw-ring-opacity, 1));
+  box-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width))
+    var(--tw-ring-color);
+  --tw-ring-offset-width: 2px;
+  box-shadow: 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color),
+    var(--tw-ring-shadow);
+}
+
+.uppercase {
+  text-transform: uppercase;
 }
 
 .text-gray-900 {
@@ -191,4 +282,47 @@
   outline-width: 2px;
   outline-offset: -2px;
   outline-color: #4f46e5;
+}
+
+#Frustrated > svg {
+  fill: red;
+}
+
+#Sad > svg {
+  fill: orange;
+}
+
+#Neutral > svg {
+  fill: yellow;
+}
+
+#Content > svg {
+  fill: lime;
+}
+
+#Happy > svg {
+  fill: green;
+}
+
+#feeling svg {
+  height: 30px;
+  aspect-ratio: 1;
+  padding: 5px;
+}
+
+#feeling input:checked ~ svg {
+  box-shadow: 0px 0px 5px black;
+  border-radius: 50%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

@@ -36,7 +36,10 @@
         </svg>
       </div>
       <form class="flex flex-col py-5" action="#">
-        <fieldset aria-label="How have you been feeling lately?">
+        <fieldset
+          aria-label="How have you been feeling lately?"
+          aria-required="true"
+        >
           <legend class="block font-semibold text-gray-900">
             How have you been feeling lately?
           </legend>
@@ -54,6 +57,7 @@
                 name="feeling"
                 value="Frustrated"
                 class="sr-only"
+                required
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +75,13 @@
               id="Sad"
               class="relative -m-0-5 flex cursor-pointer items-center justify-center rounded-full p-0-5 text-pink-500 ring-current focus:outline-none"
             >
-              <input type="radio" name="feeling" value="Sad" class="sr-only" />
+              <input
+                type="radio"
+                name="feeling"
+                value="Sad"
+                class="sr-only"
+                required
+              />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -93,6 +103,7 @@
                 name="feeling"
                 value="Neutral"
                 class="sr-only"
+                required
               />
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -115,6 +126,7 @@
                 name="feeling"
                 value="Content"
                 class="sr-only"
+                required
               /><svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -136,6 +148,7 @@
                 name="feeling"
                 value="Happy"
                 class="sr-only"
+                required
               /><svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="currentColor"
@@ -167,6 +180,7 @@
               id="name"
               class="block w-full rounded-full bg-white px-4 py-1-5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300"
               placeholder="Jane Smith"
+              required
             />
           </div>
         </div>
@@ -178,7 +192,7 @@
         </button>
       </form>
     </div>
-    <div>
+    <div class="hidden">
       <h1 id="banner">Happiness-O-Meter</h1>
       <div>Graph</div>
       <div>

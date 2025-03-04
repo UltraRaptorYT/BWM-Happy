@@ -6,18 +6,21 @@ const formFields = {
   name: "",
 };
 
-function adjustValue(val, name, invert) {
-  let change = name.length % 2 === 0 ? -1 : 1;
-  return val === 5 ? val + (invert ? -change : change) : val;
+function adjustValue(val, name, isStress) {
+  if (val === 5) {
+    let base = name.length % 2 === 0 ? 4 : 6;
+    let alt = name.charCodeAt(0) % 2 === 0 ? 4 : 6;
+    return isStress ? base : alt;
+  }
+  return val;
 }
 
 window.onload = function () {
   const params = new URLSearchParams(window.location.search);
 
-  // Check if there are any URL search parameters
   if (!window.location.search) {
     console.log("No URL parameters found. Continuing without validation.");
-    return; // Exit early if no parameters
+    return;
   }
 
   const allFieldsExist = Object.keys(formFields).every((field) =>
@@ -29,7 +32,7 @@ window.onload = function () {
     Object.keys(formFields).forEach(
       (field) => (formFields[field] = params.get(field))
     );
-    // alert(JSON.stringify(formFields));
+
     document.getElementById("title").classList.add("hidden");
     document.getElementById("form").classList.add("hidden");
     document.getElementById("results").classList.remove("hidden");
@@ -47,28 +50,50 @@ window.onload = function () {
       chart: {
         type: "scatter",
         height: 300,
-        zoom: { enabled: false }, // Disable zooming
+        zoom: { enabled: false },
+        toolbar: { show: false },
+        events: {
+          click: function (event, chartContext, opts) {
+            alert(JSON.stringify(opts));
+          },
+        },
+      },
+      tooltip: {
+        enabled: false,
+      },
+      markers: {
+        size: 6, // Adjust size for better clickability
+        strokeWidth: 2,
       },
       xaxis: {
         min: 0,
         max: 10,
-        tickAmount: 2, // Show only 0, 5, 10
+        tickAmount: 2,
         labels: {
-          formatter: (val) => (val % 5 === 0 ? val : ""), // Hide minor ticks
+          show: false,
         },
-        axisTicks: { show: false }, // Hide small ticks
+        axisTicks: { show: false },
+        axisBorder: { show: true },
       },
       yaxis: {
         min: 0,
         max: 10,
-        tickAmount: 2, // Show only 0, 5, 10
+        tickAmount: 2,
         labels: {
-          formatter: (val) => (val % 5 === 0 ? val : ""), // Hide minor ticks
+          show: false,
         },
-        axisTicks: { show: false }, // Hide small ticks
+        axisTicks: { show: false },
+        axisBorder: { show: true },
       },
       grid: {
-        borderColor: "#ccc", // Light border color
+        show: true,
+        borderColor: "#ccc",
+        xaxis: {
+          lines: { show: true },
+        },
+        yaxis: {
+          lines: { show: true },
+        },
       },
       series: [
         {
@@ -85,6 +110,6 @@ window.onload = function () {
     console.error(
       "Some required form fields are missing in the URL parameters."
     );
-    window.location.href = "/"; // Redirect if missing fields
+    window.location.href = "/";
   }
 };

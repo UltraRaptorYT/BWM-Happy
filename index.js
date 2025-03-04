@@ -47,6 +47,99 @@ window.onload = function () {
     controlVal = adjustValue(controlVal, name, false);
 
     let options = {
+      annotations: {
+        position: "back",
+        points: [
+          {
+            x: 2.5,
+            y: 3.75,
+            marker: {
+              size: 0,
+              fillColor: "transparent",
+              strokeColor: "transparent",
+              cssClass: "annotation-block",
+            },
+            label: {
+              borderColor: "transparent",
+              offsetY: 0,
+              style: {
+                color: "#000",
+                fontSize: "16px",
+                fontWeight: 600,
+                background: "transparent",
+              },
+
+              text: ["Stagnant", "Sam"],
+            },
+          },
+          {
+            x: 7.5,
+            y: 3.75,
+            marker: {
+              size: 0,
+              fillColor: "transparent",
+              strokeColor: "transparent",
+              cssClass: "annotation-block",
+            },
+            label: {
+              borderColor: "transparent",
+              offsetY: 0,
+              style: {
+                color: "#000",
+                fontSize: "16px",
+                fontWeight: 600,
+                background: "transparent",
+              },
+
+              text: ["Depressed", "Dave"],
+            },
+          },
+          {
+            x: 7.5,
+            y: 8.75,
+            marker: {
+              size: 0,
+              fillColor: "transparent",
+              strokeColor: "transparent",
+              cssClass: "annotation-block",
+            },
+            label: {
+              borderColor: "transparent",
+              offsetY: 0,
+              style: {
+                color: "#000",
+                fontSize: "16px",
+                fontWeight: 600,
+                background: "transparent",
+              },
+
+              text: ["Anxious", "Amy"],
+            },
+          },
+          {
+            x: 2.5,
+            y: 8.75,
+            marker: {
+              size: 0,
+              fillColor: "transparent",
+              strokeColor: "transparent",
+              cssClass: "annotation-block",
+            },
+            label: {
+              borderColor: "transparent",
+              offsetY: 0,
+              style: {
+                color: "#000",
+                fontSize: "16px",
+                fontWeight: 600,
+                background: "transparent",
+              },
+
+              text: ["Awesome!", "Help others?"],
+            },
+          },
+        ],
+      },
       chart: {
         type: "scatter",
         height: 300,

@@ -414,6 +414,21 @@
   outline-color: #6366f1;
 }
 
+#tryAgainBtn:focus-visible {
+  outline-style: solid;
+  outline-width: 2px;
+  outline-offset: 2px;
+  outline-color: #64748b;
+}
+
+.bg-slate-600 {
+  background-color: rgb(71 85 105 / var(--tw-bg-opacity, 1));
+}
+
+#tryAgainBtn:hover {
+  background-color: rgb(100 116 139 / var(--tw-bg-opacity, 1));
+}
+
 #rsvpBtn:hover,
 #submitBtn:hover {
   background-color: rgb(99 102 241 / var(--tw-bg-opacity, 1));

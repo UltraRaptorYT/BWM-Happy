@@ -53,8 +53,8 @@ window.onload = function () {
         zoom: { enabled: false },
         toolbar: { show: false },
         events: {
-          click: function (event, chartContext, opts) {
-            alert(JSON.stringify(opts));
+          dataPointSelection: function (event, chartContext, config) {
+            alert("SOMETHING SUPPOSE TO SHOW UP!");
           },
         },
       },
@@ -62,7 +62,7 @@ window.onload = function () {
         enabled: false,
       },
       markers: {
-        size: 6, // Adjust size for better clickability
+        size: 7, // Adjust size for better clickability
         strokeWidth: 2,
       },
       xaxis: {
@@ -97,7 +97,7 @@ window.onload = function () {
       },
       series: [
         {
-          name: "Data Points",
+          name: "Happiness Rating",
           data: [[stressVal, controlVal]],
         },
       ],
@@ -110,6 +110,18 @@ window.onload = function () {
     console.error(
       "Some required form fields are missing in the URL parameters."
     );
-    window.location.href = "/";
+    refreshWithoutParams();
   }
 };
+
+function refreshWithoutParams() {
+  window.location.href = window.location.origin + window.location.pathname;
+}
+
+document.getElementById("tryAgainBtn").addEventListener("click", function () {
+  refreshWithoutParams();
+});
+
+document.getElementById("rsvpBtn").addEventListener("click", function () {
+  refreshWithoutParams();
+});
